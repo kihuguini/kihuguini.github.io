@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riiri Estate — Premium Land for Sale</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #B8860B;
+    --gold-light: #D4A843;
+    --gold-pale: #F5E6C8;
+    --green-deep: #1a2e2e;
+    --green-dark: #2d474a;
+    --green-mid: #3d6a6b;
+    --green-soft: #5a8b8f;
+    --cream: #FAF7F0;
+    --cream-dark: #EDE5D3;
+    --charcoal: #1C1C1C;
+    --text: #2C2C2C;
+    --text-light: #6B6B6B;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.4s ease;
+    background: transparent;
+  }
+
+  nav.scrolled {
+    background: rgba(26, 46, 26, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 0.8rem 3rem;
+    box-shadow: 0 2px 40px rgba(0,0,0,0.15);
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.05em;
+  }
+
+  .logo span { color: var(--gold-light); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1.5px;
+    background: var(--gold-light);
+    transition: width 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--white) !important;
+    padding: 0.6rem 1.6rem;
+    border-radius: 2px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--white) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(165deg, var(--green-deep) 0%, #0f1f0f 40%, #1a3018 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 80%, rgba(184,134,11,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(90,143,90,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: 
+      repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.5) 80px, rgba(255,255,255,0.5) 81px),
+      repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.5) 80px, rgba(255,255,255,0.5) 81px);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    animation: fadeUp 1.2s ease-out;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(184,134,11,0.15);
+    border: 1px solid rgba(184,134,11,0.3);
+    padding: 0.5rem 1.4rem;
+    border-radius: 2px;
+    font-size: 0.78rem;
+    color: var(--gold-light);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-out 0.3s both;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+    font-weight: 400;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+    animation: fadeIn 1s ease-out 0.6s both;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeIn 1s ease-out 0.9s both;
+  }
+
+  .btn {
+    padding: 1rem 2.4rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--white);
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(184,134,11,0.3);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.3);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold-light);
+    color: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 5rem;
+    animation: fadeIn 1s ease-out 1.2s both;
+  }
+
+  .hero-stat {
+    text-align: center;
+  }
+
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: var(--gold-light);
+  }
+
+  .hero-stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-top: 0.3rem;
+  }
+
+  /* ─── SECTION COMMON ─── */
+  section {
+    padding: 7rem 3rem;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+    color: var(--charcoal);
+  }
+
+  .section-desc {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    max-width: 560px;
+    font-weight: 300;
+  }
+
+  /* ─── PLOTS ─── */
+  .plots {
+    background: var(--white);
+  }
+
+  .plots-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 4rem;
+  }
+
+  .plots-header .section-desc {
+    margin: 0 auto;
+  }
+
+  .plots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .plot-card {
+    position: relative;
+    background: var(--cream);
+    border: 1px solid rgba(0,0,0,0.06);
+    padding: 3rem;
+    transition: all 0.4s ease;
+    overflow: hidden;
+  }
+
+  .plot-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .plot-card:hover::before { transform: scaleX(1); }
+
+  .plot-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  }
+
+  .plot-type {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+  }
+
+  .plot-size {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: var(--green-deep);
+    margin-bottom: 0.3rem;
+  }
+
+  .plot-unit {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    font-weight: 300;
+  }
+
+  .plot-divider {
+    width: 40px; height: 1px;
+    background: var(--gold);
+    margin-bottom: 2rem;
+  }
+
+  .plot-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 0.4rem;
+  }
+
+  .plot-price-note {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+  }
+
+  .plot-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .plot-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.92rem;
+    color: var(--text);
+    font-weight: 400;
+  }
+
+  .plot-feature svg {
+    width: 18px; height: 18px;
+    color: var(--green-mid);
+    flex-shrink: 0;
+  }
+
+  .plot-btn {
+    width: 100%;
+    justify-content: center;
+    background: var(--green-deep);
+    color: var(--white);
+    padding: 1.1rem 2rem;
+  }
+
+  .plot-btn:hover {
+    background: var(--green-dark);
+    box-shadow: 0 8px 30px rgba(26,46,26,0.25);
+  }
+
+  /* ─── WHY ─── */
+  .why {
+    background: var(--cream);
+  }
+
+  .why-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .why-visual {
+    position: relative;
+    height: 500px;
+    background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-dark) 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .why-visual-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background-image: 
+      radial-gradient(circle at 30% 30%, var(--gold) 1px, transparent 1px),
+      radial-gradient(circle at 70% 70%, var(--gold) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .why-visual-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--white);
+    padding: 3rem;
+  }
+
+  .why-visual-text .big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .why-visual-text .label {
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-top: 0.5rem;
+  }
+
+  .why-features {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .why-feature {
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  .why-feature-icon {
+    width: 44px; height: 44px;
+    background: rgba(184,134,11,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--gold);
+  }
+
+  .why-feature h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--charcoal);
+  }
+
+  .why-feature p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ─── LOCATION ─── */
+  .location {
+    background: var(--green-deep);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .location::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 80% at 90% 50%, rgba(184,134,11,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .location-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .location .section-label { color: var(--gold-light); }
+  .location .section-title { color: var(--white); }
+  .location .section-desc { color: rgba(255,255,255,0.55); }
+
+  .location-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3.5rem;
+  }
+
+  .location-item {
+    padding: 2rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.3s;
+  }
+
+  .location-item:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(184,134,11,0.2);
+  }
+
+  .location-item svg {
+    width: 28px; height: 28px;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+
+  .location-item h4 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+
+  .location-item p {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* ─── CTA ─── */
+  .cta {
+    background: var(--white);
+    text-align: center;
+  }
+
+  .cta-box {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 5rem 3rem;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+    border: 1px solid rgba(184,134,11,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  }
+
+  .cta-box .section-title { margin-bottom: 1rem; }
+  .cta-box .section-desc { margin: 0 auto 2.5rem; text-align: center; }
+
+  .cta-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .cta-contact a {
+    color: var(--green-deep);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: color 0.3s;
+  }
+
+  .cta-contact a:hover { color: var(--gold); }
+
+  .cta-contact svg {
+    width: 20px; height: 20px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--charcoal);
+    padding: 3rem;
+    text-align: center;
+  }
+
+  footer .logo {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  footer p {
+    color: rgba(255,255,255,0.35);
+    font-size: 0.8rem;
+    font-weight: 300;
+  }
+
+  /* ─── MOBILE MENU ─── */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    margin: 5px 0;
+    transition: all 0.3s;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    nav.scrolled { padding: 0.8rem 1.5rem; }
+
+    .menu-toggle { display: block; }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      background: rgba(26,46,26,0.97);
+      flex-direction: column;
+      padding: 2rem;
+      gap: 1.5rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-links.open { display: flex; }
+
+    section { padding: 4rem 1.5rem; }
+
+    .hero-stats { gap: 2rem; flex-wrap: wrap; }
+
+    .plots-grid { grid-template-columns: 1fr; }
+    .plot-card { padding: 2rem; }
+
+    .why-container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .why-visual { height: 300px; }
+
+    .location-grid { grid-template-columns: 1fr 1fr; }
+
+    .cta-box { padding: 3rem 2rem; }
+  }
+
+  @media (max-width: 500px) {
+    .hero h1 { font-size: 2.5rem; }
+    .plot-size { font-size: 2.4rem; }
+    .plot-price { font-size: 1.8rem; }
+    .location-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ─── SCROLL ANIMATIONS ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="logo">Riiri <span>Estate</span></div>
+  <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#plots">Plots</a></li>
+    <li><a href="#why">Why Riiri</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#contact" class="nav-cta">Book a Visit</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Now Selling — Limited Plots Available</div>
+    <h1>Own Your Piece<br>of <em>Riiri</em></h1>
+    <p class="hero-sub">Premium residential plots in a serene, well-planned estate. Invest in land that grows with you.</p>
+    <div class="hero-buttons">
+      <a href="#plots" class="btn btn-primary">View Plots</a>
+      <a href="#contact" class="btn btn-outline">Book a Site Visit</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">2</div>
+        <div class="hero-stat-label">Plot Sizes</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">From 3M</div>
+        <div class="hero-stat-label">Starting Price</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">Ready</div>
+        <div class="hero-stat-label">Title Deeds</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLOTS -->
+<section class="plots" id="plots">
+  <div class="plots-header reveal">
+    <div class="section-label">Available Plots</div>
+    <h2 class="section-title">Choose Your Ideal Plot</h2>
+    <p class="section-desc">Two carefully planned plot sizes to suit your vision — whether it's a family home or a spacious compound.</p>
+  </div>
+  <div class="plots-grid">
+    <!-- 50x100 -->
+    <div class="plot-card reveal">
+      <div class="plot-type">Residential Plot</div>
+      <div class="plot-size">50 × 100</div>
+      <div class="plot-unit">feet (⅛ acre)</div>
+      <div class="plot-divider"></div>
+      <div class="plot-price">KES 3,000,000</div>
+      <div class="plot-price-note">Flexible payment plans available</div>
+      <div class="plot-features">
+        <div class="plot-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          Ready title deed
+        </div>
+        <div class="plot-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          Ideal for a residential home
+        </div>
+        <div class="plot-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          Well-planned access roads
+        </div>
+        <div class="plot-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          Water & electricity proximity
+        </div>
+      </div>
+      <a href="#contact" class="btn plot-btn">Reserve This Plot →</a>
+    </div>
+    <!-- 100x100 -->
+    <div class="plot-card reveal">
+      <div class="plot-type">Premium Plot</div>
+      <div class="plot-size">100 × 100</div>
+      <div class="plot-unit">feet (¼ acre)</div>
+      <div class="plot-divider"></div>
+      <div class="plot-price">KES 5,900,000</div>
+      <div class="plot-price-note">Flexible payment plans available</div>
+      <div class="plot-features">
+        <div class="plot-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          Ready title deed
+        </div>
+        <div class="plot-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          Spacious for home + garden
+        </div>
+        <div class="plot-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          Well-planned access roads
+        </div>
+        <div class="plot-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          Water & electricity proximity
+        </div>
+        <div class="plot-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          Perfect for a compound or investment
+        </div>
+      </div>
+      <a href="#contact" class="btn plot-btn">Reserve This Plot →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="why-container">
+    <div class="why-visual reveal">
+      <div class="why-visual-pattern"></div>
+      <div class="why-visual-text">
+        <div class="big">Riiri</div>
+        <div class="label">Estate</div>
+        <div style="margin-top:2rem; font-size:0.85rem; color:rgba(255,255,255,0.5); font-weight:300; line-height:1.8;">Where your future<br>finds its foundation</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="section-label">Why Riiri Estate</div>
+      <h2 class="section-title">Built for Families,<br>Designed for Growth</h2>
+      <p class="section-desc">Riiri Estate offers more than land — it's a well-planned community where your investment appreciates and your family thrives.</p>
+      <div class="why-features">
+        <div class="why-feature">
+          <div class="why-feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 20H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4m-7 10l4-4m0 0l4 4m-4-4v12"/></svg>
+          </div>
+          <div>
+            <h4>Genuine Title Deeds</h4>
+            <p>All plots come with verified, ready-to-transfer title deeds. Transparent and secure transactions.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
+          </div>
+          <div>
+            <h4>Controlled Development</h4>
+            <p>Well-planned estate layout with proper road networks and controlled building guidelines.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <h4>Flexible Payment Plans</h4>
+            <p>Pay at your own pace with installment options that make land ownership achievable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="location">
+  <div class="location-container">
+    <div class="reveal">
+      <div class="section-label">Location & Amenities</div>
+      <h2 class="section-title">Strategically Located</h2>
+      <p class="section-desc">Riiri Estate sits in a prime, accessible area with essential amenities within reach.</p>
+    </div>
+    <div class="location-grid">
+      <div class="location-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+        <h4>Tarmac Access</h4>
+        <p>Connected by well-maintained roads for easy access year-round</p>
+      </div>
+      <div class="location-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 14l9-5-9-5-9 5 9 5zm0 7l9-5-9-5-9 5 9 5z"/></svg>
+        <h4>Nearby Schools</h4>
+        <p>Quality primary and secondary schools within close proximity</p>
+      </div>
+      <div class="location-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2M5 21H3m4-10h2m4 0h2m-6 4h2m4 0h2"/></svg>
+        <h4>Shopping Centres</h4>
+        <p>Markets and shopping centres within convenient distance</p>
+      </div>
+      <div class="location-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        <h4>Health Facilities</h4>
+        <p>Hospitals and clinics accessible from the estate</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-box reveal">
+    <div class="section-label">Get Started</div>
+    <h2 class="section-title">Ready to Own<br>Your Plot?</h2>
+    <p class="section-desc">Book a free site visit today and walk the land that could be your future home. Our team is ready to guide you through the process.</p>
+    <a href="tel:+254700000000" class="btn btn-primary" style="margin-top:0.5rem;">Call Us Now</a>
+    <div class="cta-contact">
+      <a href="https://wa.me/254700000000">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.12 1.52 5.856L0 24l6.335-1.652A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.988 0-3.842-.58-5.406-1.578l-.388-.231-3.76.98.998-3.648-.254-.404A9.72 9.72 0 012.25 12 9.75 9.75 0 0112 2.25 9.75 9.75 0 0121.75 12 9.75 9.75 0 0112 21.75z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">Riiri <span>Estate</span></div>
+  <p>© 2026 Riiri Estate. All rights reserved. Premium land, secure future.</p>
+</footer>
+
+<script>
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.querySelector('.nav-links')?.classList.remove('open');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
