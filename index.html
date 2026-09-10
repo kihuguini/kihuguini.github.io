@@ -970,12 +970,29 @@
 	const message = document.getElementById("contactPopupMessage");
 	const submitButton = document.getElementById("contactSubmit");
 	
+	const popupStorageKey = "riiriContactPopupLastSeen";
+	const popupCooldownMs = 7 * 24 * 60 * 60 * 1000; // 7 days
+	
+	function shouldShowPopup() {
+	  const lastSeen = Number(localStorage.getItem(popupStorageKey));
+	
+	  return !lastSeen || Date.now() - lastSeen > popupCooldownMs;
+	}
+	
+	function rememberPopup() {
+	  localStorage.setItem(popupStorageKey, String(Date.now()));
+	}
+	
 	function closePopup() {
-	  popup.classList.remove("is-open");
-	  popup.setAttribute("aria-hidden", "true");
+	  	  rememberPopup();
+	
+	  	  popup.classList.remove("is-open");
+	  	  popup.setAttribute("aria-hidden", "true");
 	}
 	
 	window.addEventListener("load", () => {
+	  if (!shouldShowPopup()) return;
+	
 	  setTimeout(() => {
 	    popup.classList.add("is-open");
 	    popup.setAttribute("aria-hidden", "false");
