@@ -761,6 +761,132 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* ─── CONTACT POPUP ─── */
+.contact-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: rgba(10, 22, 22, 0.76);
+  backdrop-filter: blur(7px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.contact-popup.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.contact-popup-card {
+  position: relative;
+  width: min(100%, 460px);
+  padding: 2.5rem;
+  background: var(--cream);
+  border-top: 4px solid var(--gold);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.35);
+  transform: translateY(16px);
+  transition: transform 0.25s ease;
+}
+
+.contact-popup.is-open .contact-popup-card {
+  transform: translateY(0);
+}
+
+.contact-popup-close {
+  position: absolute;
+  top: 0.85rem;
+  right: 1rem;
+  border: 0;
+  background: transparent;
+  color: var(--text-light);
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+
+.contact-popup-label {
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.contact-popup h2 {
+  margin: 0.5rem 0 0.75rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.contact-popup p {
+  margin-bottom: 1.4rem;
+  color: var(--text-light);
+  line-height: 1.55;
+}
+
+.contact-field {
+  margin-bottom: 0.9rem;
+}
+
+.contact-field label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.contact-field input {
+  width: 100%;
+  padding: 0.85rem 0.9rem;
+  border: 1px solid var(--cream-dark);
+  border-radius: 2px;
+  background: var(--white);
+  color: var(--text);
+  font: inherit;
+}
+
+.contact-field input:focus {
+  outline: 2px solid var(--gold-light);
+  border-color: var(--gold);
+}
+
+.contact-consent {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  margin: 1rem 0;
+  color: var(--text-light);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.contact-consent input {
+  margin-top: 0.15rem;
+  accent-color: var(--gold);
+}
+
+.contact-popup .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.contact-popup-message {
+  min-height: 1.2rem;
+  margin-top: 0.8rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.contact-popup-message.error { color: #b42318; }
+.contact-popup-message.success { color: #26714b; }
 </style>
 </head>
 <body>
