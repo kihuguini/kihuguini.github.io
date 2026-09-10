@@ -10,6 +10,83 @@
 
   gtag('config', 'G-JHFNJQDG1B');
 </script>
+  <script type="module">
+  import { initializeApp } from
+    "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+  import {
+    addDoc,
+    collection,
+    getFirestore,
+    serverTimestamp
+  } from
+    "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT.firebasestorage.app",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const popup = document.getElementById("contactPopup");
+  const form = document.getElementById("contactLeadForm");
+  const message = document.getElementById("contactPopupMessage");
+  const submitButton = document.getElementById("contactSubmit");
+
+  function closePopup() {
+    popup.classList.remove("is-open");
+    popup.setAttribute("aria-hidden", "true");
+  }
+
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      popup.classList.add("is-open");
+      popup.setAttribute("aria-hidden", "false");
+      document.getElementById("leadName").focus();
+    }, 700);
+  });
+
+  document.getElementById("contactPopupClose").addEventListener("click", closePopup);
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    if (String(formData.get("website") || "").trim()) return;
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
+
+    try {
+      await addDoc(collection(db, "contactLeads"), {
+        name: String(formData.get("name")).trim(),
+        phone: String(formData.get("phone")).trim(),
+        email: String(formData.get("email") || "").trim() || null,
+        source: "website-popup",
+        createdAt: serverTimestamp()
+      });
+
+      message.textContent = "Thank you. We will contact you shortly.";
+      message.className = "contact-popup-message success";
+      form.reset();
+
+      setTimeout(closePopup, 1800);
+    } catch (error) {
+      console.error(error);
+      message.textContent = "Could not send your details. Please try again.";
+      message.className = "contact-popup-message error";
+      submitButton.disabled = false;
+      submitButton.textContent = "Request a Call Back";
+    }
+  });
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="EvfqVus0Oz3M65eC0pbjsmbDdMQiuE83Tiwr-J-f0H4" />
