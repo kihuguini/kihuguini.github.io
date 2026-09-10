@@ -765,6 +765,77 @@
 </head>
 <body>
 
+  <div
+  class="contact-popup"
+  id="contactPopup"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="contactPopupTitle"
+  aria-hidden="true"
+>
+  <div class="contact-popup-card">
+    <button
+      class="contact-popup-close"
+      id="contactPopupClose"
+      type="button"
+      aria-label="Close contact form"
+    >×</button>
+
+    <div class="contact-popup-label">Riiri Estate</div>
+    <h2 id="contactPopupTitle">Find your ideal plot</h2>
+    <p>Leave your details and our team will contact you about available plots and site visits.</p>
+
+    <form id="contactLeadForm">
+      <div class="contact-field">
+        <label for="leadName">Full name</label>
+        <input id="leadName" name="name" type="text" autocomplete="name" required>
+      </div>
+
+      <div class="contact-field">
+        <label for="leadPhone">Phone number</label>
+        <input
+          id="leadPhone"
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          placeholder="+254 7..."
+          required
+        >
+      </div>
+
+      <div class="contact-field">
+        <label for="leadEmail">Email address <small>(optional)</small></label>
+        <input id="leadEmail" name="email" type="email" autocomplete="email">
+      </div>
+
+      <!-- Spam trap: keep hidden from real users -->
+      <input
+        name="website"
+        type="text"
+        tabindex="-1"
+        autocomplete="off"
+        aria-hidden="true"
+        style="position:absolute; left:-9999px;"
+      >
+
+      <label class="contact-consent">
+        <input id="leadConsent" type="checkbox" required>
+        <span>I agree to be contacted by Riiri Estate about available plots and site visits.</span>
+      </label>
+
+      <button class="btn btn-primary" id="contactSubmit" type="submit">
+        Request a Call Back
+      </button>
+
+      <div
+        class="contact-popup-message"
+        id="contactPopupMessage"
+        aria-live="polite"
+      ></div>
+    </form>
+  </div>
+</div>
+
 <!-- NAV -->
 <nav id="nav">
   <div class="logo">Riiri <span>Estate</span></div>
@@ -1048,4 +1119,74 @@
 </script>
 
 </body>
+  <div
+  class="contact-popup"
+  id="contactPopup"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="contactPopupTitle"
+  aria-hidden="true"
+>
+  <div class="contact-popup-card">
+    <button
+      class="contact-popup-close"
+      id="contactPopupClose"
+      type="button"
+      aria-label="Close contact form"
+    >×</button>
+
+    <div class="contact-popup-label">Riiri Estate</div>
+    <h2 id="contactPopupTitle">Find your ideal plot</h2>
+    <p>Leave your details and our team will contact you about available plots and site visits.</p>
+
+    <form id="contactLeadForm">
+      <div class="contact-field">
+        <label for="leadName">Full name</label>
+        <input id="leadName" name="name" type="text" autocomplete="name" required>
+      </div>
+
+      <div class="contact-field">
+        <label for="leadPhone">Phone number</label>
+        <input
+          id="leadPhone"
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          placeholder="+254 7..."
+          required
+        >
+      </div>
+
+      <div class="contact-field">
+        <label for="leadEmail">Email address <small>(optional)</small></label>
+        <input id="leadEmail" name="email" type="email" autocomplete="email">
+      </div>
+
+      <!-- Spam trap: keep hidden from real users -->
+      <input
+        name="website"
+        type="text"
+        tabindex="-1"
+        autocomplete="off"
+        aria-hidden="true"
+        style="position:absolute; left:-9999px;"
+      >
+
+      <label class="contact-consent">
+        <input id="leadConsent" type="checkbox" required>
+        <span>I agree to be contacted by Riiri Estate about available plots and site visits.</span>
+      </label>
+
+      <button class="btn btn-primary" id="contactSubmit" type="submit">
+        Request a Call Back
+      </button>
+
+      <div
+        class="contact-popup-message"
+        id="contactPopupMessage"
+        aria-live="polite"
+      ></div>
+    </form>
+  </div>
+</div>
 </html>
