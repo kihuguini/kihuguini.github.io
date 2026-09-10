@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H4RTDS4VZ8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-H4RTDS4VZ8');
+<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-H4RTDS4VZ8">
+</script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		
+		gtag('config', 'G-H4RTDS4VZ8');
 </script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -893,13 +894,13 @@
 	<div class="contact-popup-card">
 		<button class="contact-popup-close" id="contactPopupClose" type="button" aria-label="Close contact form">×</button> 
 		<div class="contact-popup-label">
-			Riiri Estate
+			Riiri Estate 
 		</div>
 		<h2 id="contactPopupTitle">
-			Find your ideal plot
+			Find your ideal plot 
 		</h2>
 		<p>
-			Leave your details and our team will contact you about available plots and site visits.
+			Leave your details and our team will contact you about available plots and site visits. 
 		</p>
 		<form id="contactLeadForm">
 			<div class="contact-field">
@@ -927,7 +928,7 @@
 <!-- NAV -->
 <nav id="nav">
 	<div class="logo">
-		Riiri <span>Estate</span>
+		Riiri <span>Estate</span> 
 	</div>
 	<button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')"> <span></span><span></span><span></span> </button> 
 	<ul class="nav-links">
@@ -942,6 +943,7 @@
 	  "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 	
 	import {
+	  getAnalytics,
 	  addDoc,
 	  collection,
 	  getFirestore,
@@ -949,14 +951,17 @@
 	} from
 	  "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 	
-	const firebaseConfig = {
-	  apiKey: "YOUR_API_KEY",
-	  authDomain: "YOUR_PROJECT.firebaseapp.com",
-	  projectId: "YOUR_PROJECT_ID",
-	  storageBucket: "YOUR_PROJECT.firebasestorage.app",
-	  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-	  appId: "YOUR_APP_ID"
-	};
+	// Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	  const firebaseConfig = {
+	    apiKey: "AIzaSyABUcGL84eRgU55_ULUyL_s5LLw42hkRKA",
+	    authDomain: "riiri-31708.firebaseapp.com",
+	    projectId: "riiri-31708",
+	    storageBucket: "riiri-31708.firebasestorage.app",
+	    messagingSenderId: "21190429831",
+	    appId: "1:21190429831:web:9de89915eb3574875f7c22",
+	    measurementId: "G-Z04L7ZQQ45"
+	  };
 	
 	const app = initializeApp(firebaseConfig);
 	const db = getFirestore(app);
@@ -1013,6 +1018,10 @@
 	    submitButton.textContent = "Request a Call Back";
 	  }
 	});
+	
+	// Initialize Firebase
+	  const app = initializeApp(firebaseConfig);
+	  const analytics = getAnalytics(app);
 </script>
 <!-- HERO -->
 <section class="hero">
@@ -1020,14 +1029,14 @@
 	</div>
 	<div class="hero-content">
 		<div class="hero-badge">
-			Now Selling — Limited Plots Available
+			Now Selling — Limited Plots Available 
 		</div>
 		<h1>
 			Own Your Piece<br>
-			of <em>Riiri</em>
+			of <em>Riiri</em> 
 		</h1>
 		<p class="hero-sub">
-			Premium residential plots in a serene, well-planned estate. Invest in land that grows with you.
+			Premium residential plots in a serene, well-planned estate. Invest in land that grows with you. 
 		</p>
 		<div class="hero-buttons">
 			<a href="#plots" class="btn btn-primary">View Plots</a> <a href="#contact" class="btn btn-outline">Book a Site Visit</a> 
@@ -1035,26 +1044,26 @@
 		<div class="hero-stats">
 			<div class="hero-stat">
 				<div class="hero-stat-num">
-					2
+					2 
 				</div>
 				<div class="hero-stat-label">
-					Plot Sizes
+					Plot Sizes 
 				</div>
 			</div>
 			<div class="hero-stat">
 				<div class="hero-stat-num">
-					From 2.4M
+					From 2.4M 
 				</div>
 				<div class="hero-stat-label">
-					Starting Price
+					Starting Price 
 				</div>
 			</div>
 			<div class="hero-stat">
 				<div class="hero-stat-num">
-					Ready
+					Ready 
 				</div>
 				<div class="hero-stat-label">
-					Title Deeds
+					Title Deeds 
 				</div>
 			</div>
 		</div>
@@ -1064,40 +1073,40 @@
 <section class="plots" id="plots">
 	<div class="plots-header reveal">
 		<div class="section-label">
-			Available Plots
+			Available Plots 
 		</div>
 		<h2 class="section-title">
-			Choose Your Ideal Plot
+			Choose Your Ideal Plot 
 		</h2>
 		<p class="section-desc">
-			Two carefully planned plot sizes to suit your vision — whether it's a family home or a spacious compound.
+			Two carefully planned plot sizes to suit your vision — whether it's a family home or a spacious compound. 
 		</p>
 	</div>
 	<div class="plots-grid">
 <!-- 50x100 -->
 		<div class="plot-card reveal">
 			<div class="plot-type">
-				Residential Plot
+				Residential Plot 
 			</div>
 			<div class="plot-size">
-				50 × 100
+				50 × 100 
 			</div>
 			<div class="plot-unit">
-				feet (⅛ acre)
+				feet (⅛ acre) 
 			</div>
 			<div class="plot-divider">
 			</div>
 			<div class="plot-price" style="text-decoration: line-through; color: var(--text-light); font-size: 1.8rem;">
-				KES 2,600,000
+				KES 2,600,000 
 			</div>
 			<div class="plot-price">
-				KES 2,400,000
+				KES 2,400,000 
 			</div>
 			<div class="plot-price-note" style="color: var(--gold); font-weight: 500;">
-				🔥 Introductory offer
+				🔥 Introductory offer 
 			</div>
 			<div class="plot-price-note">
-				Flexible payment plans available
+				Flexible payment plans available 
 			</div>
 			<div class="plot-features">
 				<div class="plot-feature">
@@ -1130,27 +1139,27 @@
 <!-- 100x100 -->
 		<div class="plot-card reveal">
 			<div class="plot-type">
-				Premium Plot
+				Premium Plot 
 			</div>
 			<div class="plot-size">
-				100 × 100
+				100 × 100 
 			</div>
 			<div class="plot-unit">
-				feet (¼ acre)
+				feet (¼ acre) 
 			</div>
 			<div class="plot-divider">
 			</div>
 			<div class="plot-price" style="text-decoration: line-through; color: var(--text-light); font-size: 1.8rem;">
-				KES 5,000,000
+				KES 5,000,000 
 			</div>
 			<div class="plot-price">
-				KES 4,600,000
+				KES 4,600,000 
 			</div>
 			<div class="plot-price-note" style="color: var(--gold); font-weight: 500;">
-				🔥 Introductory offer
+				🔥 Introductory offer 
 			</div>
 			<div class="plot-price-note">
-				Flexible payment plans available
+				Flexible payment plans available 
 			</div>
 			<div class="plot-features">
 				<div class="plot-feature">
@@ -1190,27 +1199,27 @@
 			</div>
 			<div class="why-visual-text">
 				<div class="big">
-					Riiri
+					Riiri 
 				</div>
 				<div class="label">
-					Estate
+					Estate 
 				</div>
 				<div style="margin-top:2rem; font-size:0.85rem; color:rgba(255,255,255,0.5); font-weight:300; line-height:1.8;">
 					Where your future<br>
-					finds its foundation
+					finds its foundation 
 				</div>
 			</div>
 		</div>
 		<div class="reveal">
 			<div class="section-label">
-				Why Riiri Estate
+				Why Riiri Estate 
 			</div>
 			<h2 class="section-title">
 				Built for Families,<br>
-				Designed for Growth
+				Designed for Growth 
 			</h2>
 			<p class="section-desc">
-				Riiri Estate offers more than land — it's a well-planned community where your investment appreciates and your family thrives.
+				Riiri Estate offers more than land — it's a well-planned community where your investment appreciates and your family thrives. 
 			</p>
 			<div class="why-features">
 				<div class="why-feature">
@@ -1219,10 +1228,10 @@
 					</div>
 					<div>
 						<h4>
-							Genuine Title Deeds
+							Genuine Title Deeds 
 						</h4>
 						<p>
-							All plots come with verified, ready-to-transfer title deeds. Transparent and secure transactions.
+							All plots come with verified, ready-to-transfer title deeds. Transparent and secure transactions. 
 						</p>
 					</div>
 				</div>
@@ -1232,10 +1241,10 @@
 					</div>
 					<div>
 						<h4>
-							Controlled Development
+							Controlled Development 
 						</h4>
 						<p>
-							Well-planned estate layout with proper road networks and controlled building guidelines.
+							Well-planned estate layout with proper road networks and controlled building guidelines. 
 						</p>
 					</div>
 				</div>
@@ -1245,10 +1254,10 @@
 					</div>
 					<div>
 						<h4>
-							Flexible Payment Plans
+							Flexible Payment Plans 
 						</h4>
 						<p>
-							Pay at your own pace with installment options that make land ownership achievable.
+							Pay at your own pace with installment options that make land ownership achievable. 
 						</p>
 					</div>
 				</div>
@@ -1261,50 +1270,50 @@
 	<div class="location-container">
 		<div class="reveal">
 			<div class="section-label">
-				Location & Amenities
+				Location & Amenities 
 			</div>
 			<h2 class="section-title">
-				Strategically Located
+				Strategically Located 
 			</h2>
 			<p class="section-desc">
-				Riiri Estate sits in a prime, accessible area with essential amenities within reach.
+				Riiri Estate sits in a prime, accessible area with essential amenities within reach. 
 			</p>
 		</div>
 		<div class="location-grid">
 			<div class="location-item reveal">
 				<svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg> 
 				<h4>
-					Tarmac Access
+					Tarmac Access 
 				</h4>
 				<p>
-					Connected by well-maintained roads for easy access year-round
+					Connected by well-maintained roads for easy access year-round 
 				</p>
 			</div>
 			<div class="location-item reveal">
 				<svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 14l9-5-9-5-9 5 9 5zm0 7l9-5-9-5-9 5 9 5z" /></svg> 
 				<h4>
-					Nearby Schools
+					Nearby Schools 
 				</h4>
 				<p>
-					Quality primary and secondary schools within close proximity
+					Quality primary and secondary schools within close proximity 
 				</p>
 			</div>
 			<div class="location-item reveal">
 				<svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2M5 21H3m4-10h2m4 0h2m-6 4h2m4 0h2" /></svg> 
 				<h4>
-					Shopping Centres
+					Shopping Centres 
 				</h4>
 				<p>
-					Markets and shopping centres within convenient distance
+					Markets and shopping centres within convenient distance 
 				</p>
 			</div>
 			<div class="location-item reveal">
 				<svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg> 
 				<h4>
-					Health Facilities
+					Health Facilities 
 				</h4>
 				<p>
-					Hospitals and clinics accessible from the estate
+					Hospitals and clinics accessible from the estate 
 				</p>
 			</div>
 		</div>
@@ -1314,14 +1323,14 @@
 <section class="cta" id="contact">
 	<div class="cta-box reveal">
 		<div class="section-label">
-			Get Started
+			Get Started 
 		</div>
 		<h2 class="section-title">
 			Ready to Own<br>
-			Your Plot?
+			Your Plot? 
 		</h2>
 		<p class="section-desc">
-			Book a free site visit today and walk the land that could be your future home. Our team is ready to guide you through the process.
+			Book a free site visit today and walk the land that could be your future home. Our team is ready to guide you through the process. 
 		</p>
 		<a href="tel:+254116020000" class="btn btn-primary" style="margin-top:0.5rem;">Call Us Now</a> 
 		<div class="cta-contact">
@@ -1332,10 +1341,10 @@
 <!-- FOOTER -->
 <footer>
 	<div class="logo">
-		Riiri <span>Estate</span>
+		Riiri <span>Estate</span> 
 	</div>
 	<p>
-		© 2026 Riiri Estate. All rights reserved. Premium land, secure future.
+		© 2026 Riiri Estate. All rights reserved. Premium land, secure future. 
 	</p>
 </footer>
 <script>
